@@ -5,14 +5,11 @@
 
 ## 项目内容
 
-* [LeetCode][] 顺序算法内容
+* [LeetCode](https://github.com/ch-zgh-1993/leetcode-javascript) 顺序算法内容
 
-* 排序算法和其他经典算法见 [algorithm][] 项目
+* 排序算法和其他经典算法见 [algorithm](https://github.com/ch-zgh-1993/algorithm) 项目
 
-* 算法相关基础知识见 [book-algorithm][] 项目
-[LeetCode]:https://github.com/ch-zgh-1993/leetcode-javascript
-[algorithm]:https://github.com/ch-zgh-1993/algorithm
-[book-algorithm]:https://github.com/ch-zgh-1993/book-algorithm
+* 算法相关基础知识见 [book-algorithm](https://github.com/ch-zgh-1993/book-algorithm) 项目
 
 ## 项目贡献
 提交要求(**任一即可**)：
@@ -23,8 +20,26 @@
 4. 有效的代码简化
 5. 未提交的题目
 
+欢迎大家多多贡献~:beer:
 
 ## 项目结构
+<table>
+  <thead>
+    <tr>
+      <td> 文件夹 </td>
+      <td> 算法名称 </td>
+      <td> 难度 </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> 1-20 </td>
+      <td> Two Sum </td>
+      <td> 简单 </td>
+    </tr>
+  </tbody>
+</table>
+
 | 文件夹 | 算法名称 | 难度 |
 | -----  | ------  |----- |
 | 1-20   | Two Sum | 简单 |
