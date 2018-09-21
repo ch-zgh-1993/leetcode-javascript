@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-21 09:04:23
 * @Last Modified by:   zgh
-* @Last Modified time: 2018-09-21 11:14:17
+* @Last Modified time: 2018-09-21 19:04:35
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -41,9 +41,13 @@
   </thead>
   <tbody>
     <tr>
-      <td> 1-20 </td>
-      <td> Two Sum </td>
+      <td rowspan="2"> 1-20 </td>
+      <td> Two Sum(两数之和) </td>
       <td> 简单 </td>
+    </tr>
+    <tr>
+      <td> Two Add(两数之和) </td>
+      <td> 中等 </td>
     </tr>
   </tbody>
 </table>
