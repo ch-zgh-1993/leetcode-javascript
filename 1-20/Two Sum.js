@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-20 09:45:19
 * @Last Modified by:   zgh
-* @Last Modified time: 2018-09-20 19:31:24
+* @Last Modified time: 2018-09-21 11:25:45
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -65,6 +65,7 @@
 	// 提供测试用例，因为应该过滤掉同一个元素使用两次，当前测试用例不可以。
 	console.log(twoSum([2, 1, 3, 4, 5], 4));
 }();
+
 
 
 
