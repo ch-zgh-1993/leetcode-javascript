@@ -1,3 +1,11 @@
+/*
+* @Author: Zhang Guohua
+* @Date:   2018-09-21 09:04:23
+* @Last Modified by:   zgh
+* @Last Modified time: 2018-09-21 11:14:17
+* @Description: create by zgh
+* @GitHub: Savour Humor
+*/
 # LeetCode JS 实现
 本项目是对LeetCode算法JS逐步实现，思路解析，还有一些自己理解的优化，中间也有借鉴别人的，更优的思路所形成的实现。
 ---
@@ -39,7 +47,3 @@
     </tr>
   </tbody>
 </table>
-
-| 文件夹 | 算法名称 | 难度 |
-| -----  | ------  |----- |
-| 1-20   | Two Sum | 简单 |
