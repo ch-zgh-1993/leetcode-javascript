@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-21 09:04:23
 * @Last Modified by:   zgh
-* @Last Modified time: 2018-09-21 19:04:35
+* @Last Modified time: 2018-09-25 18:21:13
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -42,12 +42,21 @@
   <tbody>
     <tr>
       <td rowspan="2"> 1-20 </td>
-      <td> Two Sum(两数之和) </td>
+      <td> Two Sum </td>
       <td> 简单 </td>
     </tr>
     <tr>
-      <td> Two Add(两数之和) </td>
+      <td> Add Tow Numbers </td>
       <td> 中等 </td>
     </tr>
   </tbody>
 </table>
+
+
+## 算法结构 
+
+1. 题目内容： 原题
+2. 题意分析： 对题目内容进行适当分析
+3. 思路分析： 从初始思路到优化思路，逐步进行思考和更新
+4. 解答：     对题目依据上述思路分析，进行解答。给出结果和在leetcode的运行时间。
+5. 依据leetcode的解析，做出依据js的分析和可能的实现。
