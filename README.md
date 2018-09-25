@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-21 09:04:23
 * @Last Modified by:   zgh
-* @Last Modified time: 2018-09-25 18:21:13
+* @Last Modified time: 2018-09-25 18:32:06
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -18,17 +18,6 @@
 * 排序算法和其他经典算法见 [algorithm](https://github.com/ch-zgh-1993/algorithm) 项目
 
 * 算法相关基础知识见 [book-algorithm](https://github.com/ch-zgh-1993/book-algorithm) 项目
-
-## 项目贡献
-提交要求(**任一即可**)：
-
-1. 不同思路
-2. 算法更快
-3. 内存更小
-4. 有效的代码简化
-5. 未提交的题目
-
-欢迎大家多多贡献~:beer:
 
 ## 项目结构
 <table>
@@ -60,3 +49,14 @@
 3. 思路分析： 从初始思路到优化思路，逐步进行思考和更新
 4. 解答：     对题目依据上述思路分析，进行解答。给出结果和在leetcode的运行时间。
 5. 依据leetcode的解析，做出依据js的分析和可能的实现。
+
+## 项目贡献
+提交要求(**任一即可**)：
+
+1. 不同思路
+2. 算法更快
+3. 内存更小
+4. 有效的代码简化
+5. 未提交的题目
+
+欢迎大家多多贡献~:beer:
