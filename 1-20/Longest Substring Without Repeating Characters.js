@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-28 11:07:59
 * @Last Modified by:   zgh
-* @Last Modified time: 2018-09-28 19:29:52
+* @Last Modified time: 2018-09-28 19:46:52
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -88,6 +88,9 @@
 
 // 2. 
 // 	1. 注意操作循环变量，或者操作截取时的位置问题即可。
+// 	
+// 用时： 108ms，93.67%
+// 
 !function (){
 	var lengthOfLongestSubstring = function(s) {
 		let result = 0;
@@ -99,22 +102,19 @@
 	    		if(result < temp.length) result = temp.length;
 	    		return result;
 	    	}
-	    	index = index + 1;
+
 	    	if(temp.indexOf(indexs) === -1){
 	    		temp += indexs;
 	    	}else{
 	    		if(result < temp.length) result = temp.length;
+	    		index = index + 1;
 	    		temp = temp.slice(1);	
-	    		if(temp.length > 0){
-	    			i = temp.length;
-	    		}else{
-	    			i = index - 1;
-	    		}
+	    		i = index + temp.length - 1;
 	    	}
 	    }
 
 	    return result;
 	};
 
-	console.log(lengthOfLongestSubstring("abcdefbabcdefgh"));
+	console.log(lengthOfLongestSubstring("bbdxaaaab"));
 }();
