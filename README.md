@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-21 09:04:23
 * @Last Modified by:   zgh
-* @Last Modified time: 2018-09-25 18:32:06
+* @Last Modified time: 2018-09-29 14:48:53
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -30,12 +30,16 @@
   </thead>
   <tbody>
     <tr>
-      <td rowspan="2"> 1-20 </td>
+      <td rowspan="3"> 1-20 </td>
       <td> Two Sum </td>
       <td> 简单 </td>
     </tr>
     <tr>
       <td> Add Tow Numbers </td>
+      <td> 中等 </td>
+    </tr>
+    <tr>
+      <td> Longest Substring Without Repeating Characters </td>
       <td> 中等 </td>
     </tr>
   </tbody>
