@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-28 11:07:59
 * @Last Modified by:   zgh
-* @Last Modified time: 2018-09-28 19:46:52
+* @Last Modified time: 2018-10-08 19:07:39
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -116,5 +116,155 @@
 	    return result;
 	};
 
-	console.log(lengthOfLongestSubstring("bbdxaaaab"));
+	console.log(lengthOfLongestSubstring("bbdxaaaabaaa"));
 }();
+
+// 3. 
+// 
+// 用时: 140ms 68.17%
+// 
+// what? 明明是优化了呀。。。
+// 
+// 是优化了，但是一招回到解放前！！
+// 			
+!function (){
+	var lengthOfLongestSubstring = function(s) {
+		let result = 0;
+
+		let temp = '';
+		let index = 0;
+	    for(let i = 0, len  = s.length; i <= len; i++){
+	    	if(len - index <= result) return result;
+	    	let indexs = s.charAt(i);
+	    	if(indexs === ''){
+	    		if(result < temp.length) result = temp.length;
+	    		return result;
+	    	}
+	    	let repeatLoc = temp.indexOf(indexs) + 1;
+	    	if( repeatLoc === 0){
+	    		temp += indexs;
+	    	}else{
+	    		if(result < temp.length) result = temp.length;
+	    		temp = temp.slice(repeatLoc);	
+	    		i = index + temp.length;
+	    		index = index + 1;
+	    	}
+	    }
+
+	    return result;
+	};
+	console.log(lengthOfLongestSubstring("bbdxaaaabaaa"));
+}();
+// 3 真正的结果:
+// 
+//  再提交: 100 ms 97.29%
+//  
+!function (){
+	var lengthOfLongestSubstring = function(s) {
+		let result = 0;
+
+		let temp = '';
+		let index = 0;
+	    for(let i = 0, len  = s.length; i <= len; i++){
+	    	if(len - index <= result) return result;
+	    	let indexs = s.charAt(i);
+	    	let length = temp.length;
+	    	if(indexs === ''){
+	    		if(result < length) result = length;
+	    		return result;
+	    	}
+	    	let repeatLoc = temp.indexOf(indexs) + 1;
+	    	if( repeatLoc === 0){
+	    		temp += indexs;
+	    	}else{
+	    		if(result < length) result = length;
+	    		i = index + length - 1;
+	    		temp = temp.slice(repeatLoc);	
+	    		index = index + repeatLoc;
+	    	}
+	    }
+
+	    return result;
+	};
+	console.log(lengthOfLongestSubstring("aab"));
+}();
+
+
+
+
+
+/*// 自建测试用例。
+var lengthOfLongestSubstring2 = function(s) {
+		let result = 0;
+		let temp = '';
+		let index = 0;
+	    for(let i = 0, len  = s.length; i <= len; i++){
+	    	let indexs = s.charAt(i);
+	    	if(indexs === ''){
+	    		if(result < temp.length) result = temp.length;
+	    		return result;
+	    	}
+
+	    	if(temp.indexOf(indexs) === -1){
+	    		temp += indexs;
+	    	}else{
+	    		if(result < temp.length) result = temp.length;
+	    		index = index + 1;
+	    		temp = temp.slice(1);	
+	    		i = index + temp.length - 1;
+	    	}
+	    }
+
+	    return result;
+};
+var lengthOfLongestSubstring3 = function(s) {
+		let result = 0;
+		let temp = '';
+		let index = 0;
+	    for(let i = 0, len  = s.length; i <= len; i++){
+	    	if(len - index <= result) return result;
+	    	let length = temp.length;
+	    	let indexs = s.charAt(i);
+	    	if(indexs === ''){
+	    		if(result < length) result = length;
+	    		return result;
+	    	}
+	    	let repeatLoc = temp.indexOf(indexs) + 1;
+	    	if( repeatLoc === 0){
+	    		temp += indexs;
+	    	}else{
+	    		if(result < length) result = length;
+	    		temp = temp.slice(repeatLoc);	
+	    		i = index + temp.length;
+	    		index = index + repeatLoc;
+	    	}
+	    }
+
+	    return result;
+	};
+
+
+let arr = [];
+for(let i = 0; i < 10000; i++){
+	let len = Math.floor(10000*Math.random());
+	let temp = '';
+	let str = 'abcdefghijklmnopqrstuvwxyz';
+	for(let j = 0; j < len; j++){
+		temp += str.charAt(Math.floor(Math.random()*26));
+	}
+	arr.push(temp);
+}
+
+// 2用时 18003.154052734375ms
+console.time('2');
+for(let i = 0; i < arr.length; i++){
+	lengthOfLongestSubstring2(arr[i]);
+}
+console.timeEnd('2');
+
+// 3用时 23212.69482421875ms
+console.time('3');
+for(let i = 0; i < arr.length; i++){
+	lengthOfLongestSubstring3(arr[i]);
+}
+console.timeEnd('3');*/
