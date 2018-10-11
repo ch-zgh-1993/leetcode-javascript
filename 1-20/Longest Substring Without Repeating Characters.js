@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-28 11:07:59
 * @Last Modified by:   zgh
-* @Last Modified time: 2018-10-08 19:07:39
+* @Last Modified time: 2018-10-08 19:16:07
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -159,10 +159,10 @@
 // 
 //  再提交: 100 ms 97.29%
 //  
+//  不缓存变量是耗时的。。。但是也不至于多三十多毫秒啊。。。
 !function (){
 	var lengthOfLongestSubstring = function(s) {
 		let result = 0;
-
 		let temp = '';
 		let index = 0;
 	    for(let i = 0, len  = s.length; i <= len; i++){
