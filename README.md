@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-21 09:04:23
 * @Last Modified by:   zgh
-* @Last Modified time: 2018-10-15 21:41:10
+* @Last Modified time: 2019-08-21 20:25:19
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -42,6 +42,10 @@
       <td> Longest Substring Without Repeating Characters </td>
       <td> 中等 </td>
     </tr>
+    <tr>
+      <td> longest Palindrome Substring </td>
+      <td>中等</td>
+    </tr>
   </tbody>
 </table>
 
@@ -67,4 +71,5 @@
 
 
 ### 记录：
-  要忙些其他事情了，做个记录，该第四题，要保持思路，习惯，时间。
+- 要忙些其他事情了，做个记录，该第四题，要保持思路，习惯，时间。
+- 2019-8-21 继续啦！每周至少一题。
