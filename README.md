@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-21 09:04:23
 * @Last Modified by:   zgh
-* @Last Modified time: 2019-08-22 20:33:38
+* @Last Modified time: 2019-08-26 14:32:58
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -30,7 +30,7 @@
   </thead>
   <tbody>
     <tr>
-      <td rowspan="5"> 1-20 </td>
+      <td rowspan="6"> 1-20 </td>
       <td> Two Sum </td>
       <td> 简单 </td>
     </tr>
@@ -49,6 +49,10 @@
     <tr>
       <td> ZigZag Conversion </td>
       <td> 中等 </td>
+    </tr>
+    <tr>
+      <td> Reverse Integer </td>
+      <td> 简单 </td>
     </tr>
   </tbody>
 </table>
