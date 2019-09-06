@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-21 09:04:23
 * @Last Modified by:   zgh
-* @Last Modified time: 2019-08-26 14:32:58
+* @Last Modified time: 2019-09-06 17:19:22
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -30,7 +30,7 @@
   </thead>
   <tbody>
     <tr>
-      <td rowspan="6"> 1-20 </td>
+      <td rowspan="7"> 1-20 </td>
       <td> Two Sum </td>
       <td> 简单 </td>
     </tr>
@@ -54,6 +54,10 @@
       <td> Reverse Integer </td>
       <td> 简单 </td>
     </tr>
+    <tr>
+      <td> String to Integer </td>
+      <td> 中等 </td>
+    </tr>
   </tbody>
 </table>
 
@@ -75,7 +79,7 @@
 4. 有效的代码简化
 5. 未提交的题目
 
-欢迎大家多多贡献~:beer:
+快来看看吧~:beer:
 
 
 ### 记录：
