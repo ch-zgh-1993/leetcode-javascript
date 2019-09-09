@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-21 09:04:23
 * @Last Modified by:   zgh
-* @Last Modified time: 2019-09-06 17:19:22
+* @Last Modified time: 2019-09-09 19:31:33
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -30,7 +30,7 @@
   </thead>
   <tbody>
     <tr>
-      <td rowspan="7"> 1-20 </td>
+      <td rowspan="8"> 1-20 </td>
       <td> Two Sum </td>
       <td> 简单 </td>
     </tr>
@@ -56,6 +56,10 @@
     </tr>
     <tr>
       <td> String to Integer </td>
+      <td> 中等 </td>
+    </tr>
+    <tr>
+      <td> Palindrome Number </td>
       <td> 中等 </td>
     </tr>
   </tbody>
