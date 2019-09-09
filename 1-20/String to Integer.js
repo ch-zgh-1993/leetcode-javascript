@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2019-09-06 17:19:46
 * @Last Modified by:   zgh
-* @Last Modified time: 2019-09-06 18:55:28
+* @Last Modified time: 2019-09-09 11:49:42
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -50,28 +50,59 @@
 // 5.  有上下限制，如果超过则返回相应的值。 
 
 // 思路： 
-// 1. Number 可完成需求。。。
+// 1. Number 可完成需求。。。 需要注意的事情， number 对于 22dd 返回的也是NaN, 所以要用正则进行匹配，match 对于匹配不到的内容为 null。 优化，可不需要 Number.isNaN 判断。 可以将超出的放在后面，在需要判断时再进行计算。
+// 2. 同样的思路，借助语言的便利程度。 看别人的解法，看似一样，实则借用了语言可以借用的便利。  但是也没有快，可能是 Math 的操作吧，不过还是学到了一些内容。但是不像是标准的操作符。 
 
 
-// 思路1:
+// 思路1:  104ms, 78%; 36, 41.27%;
+// 
 /**
  * @param {string} str
  * @return {number}
  */
-var myAtoi = function(str) {
-    let v = Number(str.trim().match(/^(\+|\-)?\d+/)[0]);
+var myAtoi1 = function(str) {
+    let v = str.trim().match(/^(\+|\-)?\d+/);
+    if(v === null) return 0;
     let max = Math.pow(2, 31) - 1;
     let min = Math.pow(-2, 31);
-    if(Number.isNaN(v)){
-    	return 0;
-    }else if(v > max) {
+    let r = Number(v[0]);
+    if(r > max) {
     	return max;
-    }else if(v < min) {
+    }else if(r < min) {
     	return min;
     }else{
-    	return v;
+    	return r;
     }
 };
+
+
+// 思路1优化： 104ms, 77.72%; 35.9, 50%.6
+var myAtoi2 = function(str) {
+    let v = str.trim().match(/^(\+|\-)?\d+/);
+    if(v === null) return 0;
+    let max = Math.pow(2, 31) - 1;
+    let min = Math.pow(-2, 31);
+    let r = Number(v[0]);
+    if(r > max) {
+    	return max;
+    }else if(r < min) {
+    	return min;
+    }else{
+    	return r;
+    }
+};
+
+
+// 思路2: 116ms, 46.6%; 35.8m, 52.78%
+/**
+ * @param {string} str 
+ * @return {number}
+ */
+var myAtoi = function(str) {
+	let v = str.trim().match(/^(\+|\-)?\d+/);
+	return v ? Math.max(Math.min(Number(v[0]), 2**31 - 1), (-2)**31) : 0;
+}
+
 
 
 // 测试例:

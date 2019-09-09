@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2019-08-21 20:26:22
 * @Last Modified by:   zgh
-* @Last Modified time: 2019-08-22 20:22:46
+* @Last Modified time: 2019-09-09 10:53:08
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -72,7 +72,7 @@ var longestPalindrome1 = function(s) {
 // 第一次： 忘记偶数回文。。
 // 第二次： 仍然是超出时间限制，两个算法在 998 个字符串时，均用了较长时间。
 /**
- * @param {string} s
+ * @param {string}
  * @return {string}
  */
 var longestPalindrome2 = function(s) {
