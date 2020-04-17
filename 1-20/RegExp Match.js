@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2020-01-09 20:28:55
 * @Last Modified by:   zgh
-* @Last Modified time: 2020-01-13 14:28:58
+* @Last Modified time: 2020-04-17 19:12:42
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -82,6 +82,8 @@ var isMatch1 = function(s, p) {
 // 思路2:
 // 明确思路： 分情形，若不含 . 或 * ，直接比较。  若包含，则进行特殊字符替换。替换完成进行对比。
 // 这个代码好丑好丑！！！ 。
+// 重新分析，之前的思路是拿 regexp 去循环匹配 string. 现在反一下。应该是拿定量，去分析变量，情况会少很多。
+// 正常分析完了，还有一种倒退，就是 bbbba 与 .*a*a 。 .* 已经可以匹配完了，但是后面还有多余的内容。其实也是正常匹配的情形。 采用反向重新匹配，如果可以正常匹配，则没有问题。
 
 /**
  * @param {string} s
@@ -90,57 +92,77 @@ var isMatch1 = function(s, p) {
  */
 var isMatch = function(s, p) {
     if ((!p.includes('.') && !p.includes('*'))) return s === p
-    const a = s.split('')
-	const b = p.split('')
-	let j = 0
-	for (let i = 0; i < b.length; i++) {
-		if (a[i + j] === undefined) {
-			if (b[i] === '*') {
-				const temp =  b.slice(i+1).join('')
-				// TODO: 这个逻辑不知道怎么加了。。。而且代码很乱，需要重新分析一下了。
-				if (b[i - 1] === '.') 
-				return temp === a.slice(-temp.length).join('')	
-			} else if (b[i + 1] === '*' && b[i + 2] === undefined) return true
-			return false
-		}
-		if (b[i] !== '.' && b[i] !== '*') {
-			if ( b[i] !== a[i + j] && b[i+1] !== '*') return false
-			if (b[i] !== a[i + j]) {
-				if (i + 2 >= b.length) return false
-				i += 1
-				j -= 2
-			}
-		} else {
-			if (b[i] === '*' && a[i + j] === b[i-1]) {
-				if (i + j === a.length - 1 && i === b.length - 1) return true
-				i -= 1
-				j += 1
-			} else if (b[i] === '*' && a[i + j] !== b[i-1] && b[i - 1] !== '.') {
-				if (i + j !== a.length - 1 && i === b.length - 1) return false
-				j -= 1
-			} else if (b[i] === '*' && a[i + j] !== b[i-1] && b[i - 1] === '.') {
-				if (i === b.length - 1) return true
-				i -= 1
-				j += 1
+   	let status = false
+    let fl = 0
+    function match (ds, dp) {
+    	const a = (ds || s).split('')
+		const b = (dp || p).split('')
+		ds !== undefined && (status = true)
+		let j = 0
+		for (let i = 0; i < a.length; i++) {
+			if (a[i] === b[j] || b[j] === '.') {
+				j++
+			} else if (b[j] === '*' && (a[i] === b[j-1] || b[j-1] === '.')) {
+				// 不加
+			} else if (b[j + 1] === '*') {
+				if (b.length > j+2) {
+					j= j+2
+					i--
+				} else {
+					return false
+				}
+			} else if(b[j] === '*') {
+				i--
+				j++
+			} else {
+				return false
 			}
 		}
-		if (i === b.length - 1 && b[i] !== '*') return i + j === a.length - 1
-	}
-};
+		if (status) {
+			console.log(p, j+1, fl)
+			if (j+1 + fl === p.length) {
+				return true
+			} else {
+				console.log(dp)
+				console.log(fl, j + 1)
+			}
+		}
 
+		if (b.length > j + 1) {
+			!status && (fl = j+1)
+			let pp = p.split('').reverse()
+			for (let k = 0; k < pp.length; k++) {
+				if (pp[k] === '*') {
+					pp[k] = pp[k + 1]
+					pp[k + 1] = '*'
+					k++
+				}
+			}
+			return !status && match(s.split('').reverse().join(''), pp.join(''))
+		} else {
+			return true
+		}
+    }
+    return match()
+};
 
 
 
 // mock datas
 // TDOO: 这个还有问题，没走对，明天再看
+// 4.17 解决
+// 中间剩余问题， 4.17 解决
 // console.log(isMatch('aab', 'c*a*b'))
 // console.log(isMatch('ab', '.*'))
 // console.log(isMatch('aa', 'a*')) 
 // console.log(isMatch('bbaaa', 'bba*')) 
 // console.log(isMatch('mississippi', 'mis*is*ip*.'))
 // console.log(isMatch('a', 'ab*'))
-console.log(isMatch('bbbba', '.*a*a'))
+// console.log(isMatch('bbbba', '.*a*a'))
+// console.log(isMatch('aaa', 'a*c*a'))
+// console.log(isMatch('aaa', 'ab*a*c*a'))
 // console.log(isMatch('abcd', 'd*')) // false
+console.log(isMatch('a', 'ab*a'))
 // console.log(isMatch('aa', 'a'))
 // console.log(isMatch('aaaaaabbb', 'a*'))
 // console.log(isMatch('mississippi', 'mis*is*p*.'))
