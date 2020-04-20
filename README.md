@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-21 09:04:23
 * @Last Modified by:   zgh
-* @Last Modified time: 2020-01-09 20:28:36
+* @Last Modified time: 2020-04-20 15:22:56
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -30,7 +30,7 @@
   </thead>
   <tbody>
     <tr>
-      <td rowspan="8"> 1-20 </td>
+      <td rowspan="9"> 1-20 </td>
       <td> Two Sum </td>
       <td> 简单 </td>
     </tr>
@@ -89,7 +89,3 @@
 
 快来看看吧~:beer:
 
-
-### 记录：
-- 要忙些其他事情了，做个记录，该第四题，要保持思路，习惯，时间。
-- 2019-8-21 继续啦！每周至少一题。
