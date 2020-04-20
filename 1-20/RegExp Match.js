@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2020-01-09 20:28:55
 * @Last Modified by:   zgh
-* @Last Modified time: 2020-04-17 19:12:42
+* @Last Modified time: 2020-04-20 11:18:12
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -118,18 +118,19 @@ var isMatch = function(s, p) {
 				return false
 			}
 		}
+		if(b[j] === '*') j++
 		if (status) {
-			console.log(p, j+1, fl)
-			if (j+1 + fl === p.length) {
+			console.log(j, fl)
+			if (j + fl > p.length || (j + fl === p.length && p.includes('*'))) {
 				return true
 			} else {
-				console.log(dp)
-				console.log(fl, j + 1)
+				const index = p.substring(fl, p.length-j).split('')
+				return index.length > 1 && index.every((val, i) => i === p.length-1 || p[i+1] === '*')
 			}
 		}
 
-		if (b.length > j + 1) {
-			!status && (fl = j+1)
+		if (b.length > j) {
+			!status && (fl = j)
 			let pp = p.split('').reverse()
 			for (let k = 0; k < pp.length; k++) {
 				if (pp[k] === '*') {
@@ -152,6 +153,7 @@ var isMatch = function(s, p) {
 // TDOO: 这个还有问题，没走对，明天再看
 // 4.17 解决
 // 中间剩余问题， 4.17 解决
+// 4.20 还是有问题，觉得这个思路可能有问题。。。还是要另寻死路。
 // console.log(isMatch('aab', 'c*a*b'))
 // console.log(isMatch('ab', '.*'))
 // console.log(isMatch('aa', 'a*')) 
@@ -161,11 +163,17 @@ var isMatch = function(s, p) {
 // console.log(isMatch('bbbba', '.*a*a'))
 // console.log(isMatch('aaa', 'a*c*a'))
 // console.log(isMatch('aaa', 'ab*a*c*a'))
+// console.log(isMatch('ab', '.*..'))
+// console.log(isMatch('', '.*'))
+// console.log(isMatch("aasdfasdfasdfasdfas", "aasdf.*asdf.*asdf.*asdf.*s"))
+// console.log('false')
 // console.log(isMatch('abcd', 'd*')) // false
-console.log(isMatch('a', 'ab*a'))
+// console.log(isMatch('a', 'ab*a'))
 // console.log(isMatch('aa', 'a'))
 // console.log(isMatch('aaaaaabbb', 'a*'))
 // console.log(isMatch('mississippi', 'mis*is*p*.'))
+// console.log(isMatch('', '.'))
+// console.log(isMatch('a', 'a.'))
 
 
 
