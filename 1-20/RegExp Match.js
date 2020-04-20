@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2020-01-09 20:28:55
 * @Last Modified by:   zgh
-* @Last Modified time: 2020-04-20 11:18:12
+* @Last Modified time: 2020-04-20 17:50:55
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -79,7 +79,7 @@ var isMatch1 = function(s, p) {
 };
 
 
-// 思路2:
+// 思路2: x 掉
 // 明确思路： 分情形，若不含 . 或 * ，直接比较。  若包含，则进行特殊字符替换。替换完成进行对比。
 // 这个代码好丑好丑！！！ 。
 // 重新分析，之前的思路是拿 regexp 去循环匹配 string. 现在反一下。应该是拿定量，去分析变量，情况会少很多。
@@ -90,7 +90,7 @@ var isMatch1 = function(s, p) {
  * @param {string} p
  * @return {boolean}
  */
-var isMatch = function(s, p) {
+var isMatch2 = function(s, p) {
     if ((!p.includes('.') && !p.includes('*'))) return s === p
    	let status = false
     let fl = 0
@@ -147,14 +147,33 @@ var isMatch = function(s, p) {
     return match()
 };
 
+// 思路3: 80ms 91.42%; 35.8mb 42.86%
+// 参照官方， 使用动态规划算法，用空间换取时间。
+// 自底向上： 
+
+var isMatch = function(s, p) {
+	let dp = Array(s.length +1)
+	for(let i = 0; i< dp.length; i++) {
+		dp[i] = Array(p.length + 1)
+	}
+	dp[s.length][p.length] = true
+
+	for (let i = s.length; i >= 0; i--) {
+		for (let j = p.length - 1; j >= 0; j--) {
+			let fm = i < s.length && (p[j] === s[i] || p[j] === '.')
+			if (j+1 < p.length && p[j+1] === '*') {
+				dp[i][j] = dp[i][j+2] || (fm && dp[i + 1][j])
+			} else {
+				dp[i][j] = fm && dp[i+1][j+1]
+			}
+			console.log(dp[i][j])
+		}
+	}
+	return !!dp[0][0]
+};
 
 
-// mock datas
-// TDOO: 这个还有问题，没走对，明天再看
-// 4.17 解决
-// 中间剩余问题， 4.17 解决
-// 4.20 还是有问题，觉得这个思路可能有问题。。。还是要另寻死路。
-// console.log(isMatch('aab', 'c*a*b'))
+console.log(isMatch('aab', 'c*a*b'))
 // console.log(isMatch('ab', '.*'))
 // console.log(isMatch('aa', 'a*')) 
 // console.log(isMatch('bbaaa', 'bba*')) 
