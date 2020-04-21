@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-21 09:04:23
 * @Last Modified by:   zgh
-* @Last Modified time: 2020-04-20 15:22:56
+* @Last Modified time: 2020-04-21 16:03:56
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -20,12 +20,16 @@
 * 算法相关基础知识见 [book-algorithm](https://github.com/ch-zgh-1993/book-algorithm) 项目
 
 ## 项目结构
+
+### leetcode
+
 <table>
   <thead>
     <tr>
       <td> 文件夹 </td>
       <td> 算法名称 </td>
       <td> 难度 </td>
+      <td> 描述 </td>
     </tr>
   </thead>
   <tbody>
@@ -33,38 +37,47 @@
       <td rowspan="9"> 1-20 </td>
       <td> Two Sum </td>
       <td> 简单 </td>
+      <td></td>
     </tr>
     <tr>
       <td> Add Tow Numbers </td>
       <td> 中等 </td>
+      <td></td>
     </tr>
     <tr>
       <td> Longest Substring Without Repeating Characters </td>
       <td> 中等 </td>
+      <td></td>
     </tr>
     <tr>
       <td> longest Palindrome Substring </td>
       <td> 中等 </td>
+      <td></td>
     </tr>
     <tr>
       <td> ZigZag Conversion </td>
       <td> 中等 </td>
+      <td></td>
     </tr>
     <tr>
       <td> Reverse Integer </td>
       <td> 简单 </td>
+      <td></td>
     </tr>
     <tr>
       <td> String to Integer </td>
       <td> 中等 </td>
+      <td></td>
     </tr>
     <tr>
       <td> Palindrome Number </td>
       <td> 中等 </td>
+      <td></td>
     </tr>
     <tr>
       <td> RegExp Math </td>
       <td> 困难 </td>
+      <td> 使用算法，比js 提供的 NFA 匹配要快一些 </td>
     </tr>
   </tbody>
 </table>

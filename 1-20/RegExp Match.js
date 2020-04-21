@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2020-01-09 20:28:55
 * @Last Modified by:   zgh
-* @Last Modified time: 2020-04-20 17:50:55
+* @Last Modified time: 2020-04-21 16:30:56
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -151,7 +151,7 @@ var isMatch2 = function(s, p) {
 // 参照官方， 使用动态规划算法，用空间换取时间。
 // 自底向上： 
 
-var isMatch = function(s, p) {
+var isMatch3 = function(s, p) {
 	let dp = Array(s.length +1)
 	for(let i = 0; i< dp.length; i++) {
 		dp[i] = Array(p.length + 1)
@@ -166,33 +166,57 @@ var isMatch = function(s, p) {
 			} else {
 				dp[i][j] = fm && dp[i+1][j+1]
 			}
-			console.log(dp[i][j])
 		}
 	}
 	return !!dp[0][0]
 };
 
 
+// 思路4: 112ms 46.33%; 35.2mb 42.86%
+// 回溯：这个不就是之前想的。。但是还是没有做，拿 * 为0, 1, 2, 3, 4 次来做处理，去匹配字符串。长度的话，以字符串长度为极限。
+// 记录下回溯点的状态。
+// 自顶而下： 这时候，刚好是求最优解，最优子结构，可以使用动态规划的方式。
+// 当 p 匹配完了， s 匹配的结果就是最终结果。 当 p 中有 * 时，让其结果以之后的结果为结果 (mach(i, j + 2)). 否则回溯 直到 匹配完成，如果没有找到，则返回false. 当 正常匹配时，判断 字符串匹配完了， 再判断值是否相等。
+
+var isMatch = function(s, p) {
+	function match(i, j) {
+
+        if (p.length === j) return i === s.length
+
+        if (j < p.length - 1 && p[j + 1] === '*') {
+        	if (match(i, j + 2)) return true
+        	while (i !== s.length && (p[j] === '.' || s[i] === p[j])) {
+        		if (match(++i, j + 2)) return true
+        	}
+        	return false
+        } else {
+        	return i === s.length ? false : (p[j] === '.' || s[i] === p[j] ? match(i + 1, j + 1) : false)
+        }
+	}	
+	return match(0, 0)
+};
+
+
 console.log(isMatch('aab', 'c*a*b'))
-// console.log(isMatch('ab', '.*'))
-// console.log(isMatch('aa', 'a*')) 
-// console.log(isMatch('bbaaa', 'bba*')) 
-// console.log(isMatch('mississippi', 'mis*is*ip*.'))
-// console.log(isMatch('a', 'ab*'))
-// console.log(isMatch('bbbba', '.*a*a'))
-// console.log(isMatch('aaa', 'a*c*a'))
-// console.log(isMatch('aaa', 'ab*a*c*a'))
-// console.log(isMatch('ab', '.*..'))
-// console.log(isMatch('', '.*'))
-// console.log(isMatch("aasdfasdfasdfasdfas", "aasdf.*asdf.*asdf.*asdf.*s"))
-// console.log('false')
-// console.log(isMatch('abcd', 'd*')) // false
-// console.log(isMatch('a', 'ab*a'))
-// console.log(isMatch('aa', 'a'))
-// console.log(isMatch('aaaaaabbb', 'a*'))
-// console.log(isMatch('mississippi', 'mis*is*p*.'))
-// console.log(isMatch('', '.'))
-// console.log(isMatch('a', 'a.'))
+console.log(isMatch('ab', '.*'))
+console.log(isMatch('aa', 'a*')) 
+console.log(isMatch('bbaaa', 'bba*')) 
+console.log(isMatch('mississippi', 'mis*is*ip*.'))
+console.log(isMatch('a', 'ab*'))
+console.log(isMatch('bbbba', '.*a*a'))
+console.log(isMatch('aaa', 'a*c*a'))
+console.log(isMatch('aaa', 'ab*a*c*a'))
+console.log(isMatch('ab', '.*..'))
+console.log(isMatch('', '.*'))
+console.log(isMatch("aasdfasdfasdfasdfas", "aasdf.*asdf.*asdf.*asdf.*s"))
+console.log('false')
+console.log(isMatch('abcd', 'd*')) // false
+console.log(isMatch('a', 'ab*a'))
+console.log(isMatch('aa', 'a'))
+console.log(isMatch('aaaaaabbb', 'a*'))
+console.log(isMatch('mississippi', 'mis*is*p*.'))
+console.log(isMatch('', '.'))
+console.log(isMatch('a', 'a.'))
 
 
 
