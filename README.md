@@ -2,7 +2,7 @@
 * @Author: Zhang Guohua
 * @Date:   2018-09-21 09:04:23
 * @Last Modified by:   zgh
-* @Last Modified time: 2020-04-21 16:03:56
+* @Last Modified time: 2020-04-22 17:36:25
 * @Description: create by zgh
 * @GitHub: Savour Humor
 */
@@ -78,6 +78,11 @@
       <td> RegExp Math </td>
       <td> 困难 </td>
       <td> 使用算法，比js 提供的 NFA 匹配要快一些 </td>
+    </tr>
+    <tr>
+      <td> Del Linked Node </td>
+      <td> 中等 </td>
+      <td></td>
     </tr>
   </tbody>
 </table>
